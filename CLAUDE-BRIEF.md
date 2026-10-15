@@ -12,8 +12,8 @@ The enquiry flow is essential:
 1. Visitor selects one or more queries.
 2. Submit queries advances to personal details.
 3. Ask for a name and a choice of phone OR email. Require only the selected contact method.
-4. Final Send enquiry saves the record to Neon Postgres.
-5. Confirm success only after the backend accepts the enquiry.
+4. Final Send enquiry emails Komal through Resend. Neon Postgres is an optional archive when DATABASE_URL is configured.
+5. Confirm success only after Resend accepts the email. Do not send automatic emails to visitors.
 6. Preserve details after errors and query selections when navigating back.
 
 Use CONTENT.md for text and README.md for deployment. This is standalone Next.js intended for Vercel. Do not add Cloudflare, Vinext or host-specific project files.

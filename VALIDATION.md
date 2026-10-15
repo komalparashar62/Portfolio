@@ -1,11 +1,9 @@
-# Package validation
+# Validation
 
 Checked on 15 October 2026:
 
-- Dependencies installed successfully from the package manifest; package-lock.json included.
-- `npm test`: 6 tests passed.
+- `npm test`: 14 tests passed, including mocked Resend delivery, phone/email preference, retry idempotency, provider failures and optional archive behaviour.
 - `npm run typecheck`: passed.
 - `npm run build`: standalone Next.js production build passed.
-- Build output includes the static homepage and dynamic `/api/enquiries` endpoint.
 
-A real Neon database has not been connected or tested. Follow README.md and send a test enquiry after deployment. Browser-based visual QA of this export has not been performed.
+No live Resend email has been sent. API credentials, verified sender, recipient inbox and delivery remain to be tested after Vercel configuration. No live Neon connection has been tested. Browser-based visual QA has not been performed.

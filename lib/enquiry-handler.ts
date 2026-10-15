@@ -1,6 +1,6 @@
 import { enquirySchema } from './enquiries.ts';
 export type Enquiry = ReturnType<typeof enquirySchema.parse>;
-export async function handleEnquiry(request: Request, save: (data: Enquiry) => Promise<void>) {
+export async function handleEnquiry(request: Request, deliver: (data: Enquiry) => Promise<void>) {
   const response = (data: unknown, status: number) => Response.json(data, {status, headers: {'Cache-Control':'no-store'}});
   const origin = request.headers.get('origin');
   if (origin) {
@@ -17,7 +17,7 @@ export async function handleEnquiry(request: Request, save: (data: Enquiry) => P
   const parsed = enquirySchema.safeParse(body);
   if (!parsed.success) return response({error:parsed.error.issues[0]?.message || 'Please check your details.'},400);
   try {
-    await save(parsed.data);
+    await deliver(parsed.data);
     return response({ok:true},201);
-  } catch { return response({error:'Your enquiry could not be saved. Please try again in a moment.'},503); }
+  } catch { return response({error:'Your enquiry could not be sent. Please try again in a moment.'},503); }
 }

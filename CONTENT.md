@@ -160,7 +160,7 @@ Back link: **Edit your queries**
 
 Button: **Send enquiry**
 
-Your details are saved with your enquiry and used to discuss your project. No mailing list.
+Your details are sent with your enquiry and used to discuss your project. No mailing list.
 
 ### Confirmation
 
